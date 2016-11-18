@@ -3,78 +3,78 @@
   <head>
     <meta charset="utf-8">
     <title>Welcome to Firebase Hosting</title>
-    <style media="screen">
-      body {
-        font-family: Roboto, Arial, sans-serif;
-        background: #ECEFF1;
-        color: rgba(0,0,0,0.87);
-      }
-
-      a {
-        color: rgb(3,155,229);
-      }
-
-      #message {
-        max-width: 400px;
-        margin: 40px auto;
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
-        border-radius: 2px;
-        background: white;
-        padding: 16px 24px;
-      }
-
-      #message h1 {
-        font-size: 22px;
-        font-weight: 500;
-        text-align: center;
-        margin: 0 0 16px;
-      }
-
-      #message p {
-        font-weight: 300;
-        line-height: 150%;
-      }
-
-      #message ul {
-        list-style: none;
-        margin: 16px 0 0;
-        padding: 0;
-        text-align: center;
-      }
-
-      #message li a {
-        display: inline-block;
-        padding: 8px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 500;
-        background: rgb(3,155,229);
-        color: white;
-        border: 1px solid rgb(3,155,229);
-        border-radius: 3px;
-        font-size: 14px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-      }
-    </style>
 
       <!-- css and libraries -->
       <!-- AngularJS -->
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+      <!--Roboto Font-->
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+      <!--Material Icons-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
       <!-- Firebase -->
       <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
 
       <!-- AngularFire -->
       <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
-      <script type="text/javascript" src="/js/angular/app.js"></script>
+      <!--<script type="text/javascript" src="/js/angular/app.js"></script>-->
+
+      <!--custom styleshee-->
+      <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
 
   </head>
 
-  <body ng-app="app">
-    <div id="message" ng-controller="MainController">
-      
+  <body>
+
+  <div class="nav-holder">
+    <nav class="material-nav">
+        <div class="nav-brand">
+          <h4>BRAND</h4>
+        </div>
+        <div class="nav-search">
+          <div class="search-bar">
+            <div class="search-icon">
+              <i class="material-icons">search</i>
+            </div>
+            <div class="search-input">
+              <input type="text" name="search" placeholder="Search">  
+            </div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <ul>
+            <li>
+              <a href="#" class="btn">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </nav>    
+  </div>
+    
+    
+    
+    <div id="message">
+        <div class="google-map">
+            
+            
+
+        </div>
       
     </div>
-
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwys19ZpjP8PDBbVuSK_d1Mdh6P8m9-M&callback=initMap"
+    async defer></script>
   </body>
 </html>
