@@ -116,6 +116,11 @@
         	console.log("Latitude: "+event.latLng.lat().toFixed(6));
         	console.log("Longitude: "+event.latLng.lng().toFixed(6));
 
+        	dbRefList.push({
+        		lat: event.latLng.lat().toFixed(6),
+        		lng: event.latLng.lng().toFixed(6)
+        	})
+
         	addMarker(event.latLng, map);
         });
     }
@@ -127,7 +132,8 @@
         
         var marker = new google.maps.Marker({
           position: location,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP
         });
 
         console.info("The location");
