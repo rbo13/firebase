@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <title>Welcome to Firebase Hosting</title>
 
-      <!-- css and libraries -->
-      <!-- AngularJS -->
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
       <!--Roboto Font-->
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
@@ -15,10 +12,6 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
-      <!-- Firebase -->
-      <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
-      <!-- AngularFire -->
-      <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
       <!--<script type="text/javascript" src="/js/angular/app.js"></script>-->
 
       <!--custom styleshee-->
@@ -29,6 +22,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
+        width: 100%;
         height: 90%;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -41,24 +35,33 @@
 
   </head>
 
-  <body>
+  <body ng-app="app">
 
+     <!-- <div id="message" ng-controller="MainController">
+      
+      <ul>
+        <li ng-repeat="marker in markers">
+          The Lat: {{marker.lat}}
+          The Long: {{marker.lng}}
+        </li>
+      </ul>
+       <input type="text" ng-model="data.checkout">
+       <h1>You said: {{data.checkout}}</h1>
+       
+       {{hello}}
 
+       <input type="text" ng-model="latMarker">
+       <input type="text" ng-model="lngMarker">
 
-  <div class="nav-holder">
+       <button ng-click="addMarker()">Add</button>
+
+       <button ng-click="loginWithGoogle('google')">Login With Google</button>
+     </div> -->
+
+     <div class="nav-holder">
     <nav class="material-nav">
         <div class="nav-brand">
-          <h4>BRAND</h4>
-        </div>
-        <div class="nav-search">
-          <div class="search-bar">
-            <div class="search-icon">
-              <i class="material-icons">search</i>
-            </div>
-            <div class="search-input">
-              <input type="text" name="search" placeholder="Search">  
-            </div>
-          </div>
+          <img src="assets/icons/brand.svg">
         </div>
         <div class="nav-links">
           <ul>
@@ -71,9 +74,35 @@
       </nav>    
   </div>
 
+  <div class="filter-holder">
+    <div class="filter-card">
+    <ul>
+      <li>
+        <a  href="" class="btn blue circle">H</a>
+      </li>
+      <li>
+        <a  href="" class="btn pink circle">H</a>
+      </li>
+      <li>
+        <a  href="" class="btn green circle">H</a>
+      </li>
+      <li>
+        <a  href="" class="btn purple circle">H</a>
+      </li>
+    </ul>
+  </div>  
+  </div>
+  
+
   <div id="map"></div>
+
     <script>
       var ph = { lat: 10.3157, lng: 123.8854}
+      var markers = 'assets/icons/'
+      var eventIcon = 'eventIcon.png'
+      var complaintIcon = 'complaintIcon.png'
+      var emergencyIcon = 'emergencyIcon.png'
+      var happeningIcon = 'happeningIcon.png'
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -83,7 +112,8 @@
         });
         var marker = new google.maps.Marker({
           position: ph,
-          map: map
+          map: map,
+          icon: markers + happeningIcon
         });
       }
     </script>
@@ -91,6 +121,17 @@
     async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
-  </body>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+
+    <script type="text/javascript" src="/js/angular/app.js"></script>
+    <script type="text/javascript" src="/js/angular/controllers/controller.module.js"></script>
+    <script type="text/javascript" src="/js/angular/controllers/MainController.js"></script>
+ 
+   </body>
 
 </html>
