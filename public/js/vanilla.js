@@ -47,6 +47,7 @@
 		
 
 		initMap(lat, lng, ph);
+		createMarker(markers);
 
 		console.log(lat+" - "+lng);
 		console.log(markers);
@@ -109,23 +110,38 @@
           center: ph
         });
 
-        for(i = 0; i < markers.length; i++){
+        // This event listener calls addMarker() when the map is clicked.
+        google.maps.event.addListener(map, 'click', event => {
+        	console.log("The event");
+        	console.log("Latitude: "+event.latLng.lat().toFixed(6));
+        	console.log("Longitude: "+event.latLng.lng().toFixed(6));
+
+        	addMarker(event.latLng, map);
+        });
+    }
+
+    //Add a new marker
+    function addMarker(location, map){
+    	// Add the marker at the clicked location, and add the next-available label
+        // from the array of alphabetical characters.
+        
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+
+        console.info("The location");
+        console.log(location);
+    }
+
+    //create a new marker
+    function createMarker(markers){
+    	for(var i = 0; i < markers.length; i++){
         	var marker = new google.maps.Marker({
           		position: new google.maps.LatLng(markers[i].lat, markers[i].lng),
           		map: map
         	});
         }
-        
-    }
-
-    function addMarker(location, map){
-
-    	// Add the marker at the clicked location, and add the next-available label
-        // from the array of alphabetical characters.
-        var marker = new google.maps.Marker({
-          position: location,
-          map: map
-        });
     }
 
 
