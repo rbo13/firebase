@@ -76,10 +76,24 @@
 
   <body ng-app="app">
      <div id="message" ng-controller="MainController">
-       <input type="text" ng-model="data.text">
-       <h1>You said: {{data.text}}</h1>
+      
+      <ul>
+        <li ng-repeat="marker in markers">
+          The Lat: {{marker.lat}}
+          The Long: {{marker.lng}}
+        </li>
+      </ul>
+       <!-- <input type="text" ng-model="data.checkout">
+       <h1>You said: {{data.checkout}}</h1>
        
-       {{hello}}
+       {{hello}} -->
+
+       <input type="text" ng-model="latMarker">
+       <input type="text" ng-model="lngMarker">
+
+       <button ng-click="addMarker()">Add</button>
+
+       <button ng-click="loginWithGoogle('google')">Login With Google</button>
      </div>
  
    </body>
