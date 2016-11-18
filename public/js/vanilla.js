@@ -11,6 +11,13 @@
 
 	firebase.initializeApp(config);
 
+
+	//Get login button
+	var googleLogin = document.getElementById('login');
+
+	//Do logout
+	var btnLogout = document.getElementById('logout');
+
 	var lat = "";
 	var lng = "";
 
@@ -20,6 +27,7 @@
 
 	const preObject = document.getElementById('object');
 	const ulList = document.getElementById('list');
+	const helloUser = document.getElementById('helloUser');
 
 	const dbRef = firebase.database().ref().child('data');
 	const dbRefList = dbRef.child('markers');
@@ -44,11 +52,56 @@
 		console.log(markers);
 	});
 
+	//add event listener to map on click.
+	// google.maps.event.addListener(map, 'click', event => {
+	// 	console.log("Create new marker");
+	// 	console.log(event);
+	// 	addMarker(event.latLng, map);
+	// });
+
 	// var bigOne = document.getElementById('bigOne');
 	// //database reference
 	// var dbRef = firebase.database().ref().child('data');
 	// dbRef.on('value', snap => console.log(snap.val()));
 
+	//function for login.
+	googleLogin.addEventListener('click', e => {
+
+		console.log("From vanillajs");
+		var provider = new firebase.auth.GoogleAuthProvider();
+
+		provider.addScope('profile');
+		provider.addScope('email');
+
+		firebase.auth().signInWithPopup(provider).then(result => console.log(result));
+
+	});
+
+	//Add auth realtime listener.
+	firebase.auth().onAuthStateChanged(firebaseUser => {
+
+		if(firebaseUser){
+			console.log(firebaseUser);
+			btnLogout.style.display = "block";
+			signUp.style.display = "none";
+			helloUser.innerText = firebaseUser.displayName;
+		}else{
+			console.log('not logged in');
+			signUp.style.display = "block";
+			btnLogout.style.display = "none";
+			helloUser.innerText = "";
+		}
+
+	});
+
+	//Perform logout
+	btnLogout.addEventListener('click', e => {
+
+		console.log("Logout");
+		firebase.auth().signOut();
+	});
+	
+	//create a initialize map and create a new marker.
 	function initMap(lat, lng, ph) {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: lat, lng: lng},
@@ -63,6 +116,18 @@
         	});
         }
         
-    }	
+    }
+
+    function addMarker(location, map){
+
+    	// Add the marker at the clicked location, and add the next-available label
+        // from the array of alphabetical characters.
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+    }
+
+
 
 })();

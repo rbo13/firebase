@@ -116,6 +116,8 @@ a{
 	padding: 20px;
 }
 	
-
+.hidden{
+	display: none;
+}
 
 
