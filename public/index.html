@@ -64,7 +64,13 @@
       <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
       <!-- AngularFire -->
       <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+      
+      <!-- angular module -->
       <script type="text/javascript" src="/js/angular/app.js"></script>
+      <!-- angular controllers and its module -->
+      <script type="text/javascript" src="/js/angular/controllers/controller.module.js"></script>
+      <script type="text/javascript" src="/js/angular/controllers/MainController.js"></script>
+      
 
   </head>
 
@@ -73,6 +79,7 @@
        <input type="text" ng-model="data.text">
        <h1>You said: {{data.text}}</h1>
        
+       {{hello}}
      </div>
  
    </body>
