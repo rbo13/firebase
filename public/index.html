@@ -23,12 +23,13 @@
 
       <!--custom styleshee-->
       <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
       <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 8¥90%;
+        height: 90%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -62,7 +63,8 @@
         <div class="nav-links">
           <ul>
             <li>
-              <a href="#" class="btn">Sign Up</a>
+              <a href="#" id="sign-in" class="btn google">Sign up with G+
+              </a>
             </li>
           </ul>
         </div>
@@ -87,6 +89,8 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwys19ZpjP8PDBbVuSK_d1Mdh6P8m9-M&callback=initMap"
     async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 
 </html>
