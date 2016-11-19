@@ -69,6 +69,7 @@ a{
 
 .pink{
 	background: #E81F64 !important;
+	color: #fff;
 }
 
 .green{
@@ -189,6 +190,7 @@ a{
 
 .filter-holder{
 	width: 100%;
+	height: 40px;
 	padding: 20px 0px;
 	position: fixed;
 	bottom: 30px;
@@ -230,5 +232,25 @@ a{
   position: relative;
   top: 10px;
   left: 10px;
+}
+
+.marker-dialog{
+	width: 420px;
+	position: fixed;
+	top: 50%;
+	left: 20%;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.3);
+	z-index: 9999;
+}
+
+.marker-dialog .marker-title{
+	padding: 30px;
+}
+
+.marker-dialog .marker-message{
+	padding: 10px 30px;
+	font-weight: 300;
+	background: #fff;
+	color: rgba(0,0,0,0.3);
 }
 
