@@ -1,5 +1,8 @@
 $(document).ready(function(){
-	$('#sign-in').click(function(){
-		$('#sign-in-card').toggleClass('active');
+	$('#chat-drawer').click(function(){
+		$('#drawer').toggleClass('active');
+	})
+	$('#chat-drawer-close').click(function(){
+		$('#drawer').toggleClass('active');
 	})
 })

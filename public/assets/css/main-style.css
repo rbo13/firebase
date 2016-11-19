@@ -81,12 +81,13 @@ a{
 
 .google{
 	font-weight: 300;
-	background: #dd4b39;	
+	background: #dd4b39 !important;	
 	color: #fff !important;
 }
 
-.btn.white{
-	background: #fff;
+.white{
+	background: #fff !important;
+	color: #363635 !important;
 }
 
 .btn.white i{
@@ -129,6 +130,13 @@ a{
 	height: auto;
 }
 
+.desktop{
+	display: block;
+}
+.mobile{
+	display: none;
+}
+
 .material-nav .nav-search{
 	margin: 0 auto;
 }
@@ -165,8 +173,8 @@ a{
 
 .material-nav .nav-links ul{
 	list-style: none;
-	padding: 10px 0px;
 	margin: 0;
+	padding: 0;
 }
 
 .material-nav .nav-links ul li{
@@ -197,4 +205,30 @@ a{
 	display: none !important;
 }
 
+
+.chat-holder{
+	background: #fff;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	right: -300%;
+	padding: 0px 20px;
+	z-index: 99999;
+	border-left: 2px solid rgba(0,0,0,0.1);
+	transition: all 0.3s ease-in-out;
+}
+
+.chat-holder.active{
+	right: 0;
+}
+
+#messages-card{
+	height: 90% !important;
+}
+
+#chat-drawer-close{
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
 

@@ -7,9 +7,18 @@
 		bottom: 0 !important;
 		padding: 0 !important;
 	}
-
-	dialog{
+	.desktop{
+		display: none;
+	}
+	.mobile{
+		display: block;
+	}
+	.material-nav .nav-brand img{
+		width: 25px;
+		height: auto;
+	}
+	dialog{ 
 		top: 0px !important;
 	}
-
+ 
 }
