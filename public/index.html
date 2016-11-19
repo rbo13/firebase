@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Psst!!</title>
 
-
       <!--Roboto Font-->
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
 
@@ -41,9 +40,9 @@
 
   <body ng-app="app">
 
-     <!-- <div id="message" ng-controller="MainController">
+     <div id="message" ng-controller="MainController">
       
-      <ul>
+      <!-- <ul>
         <li ng-repeat="marker in markers">
           The Lat: {{marker.lat}}
           The Long: {{marker.lng}}
@@ -57,12 +56,12 @@
        <input type="text" ng-model="latMarker">
        <input type="text" ng-model="lngMarker">
 
-       <button ng-click="addMarker()">Add</button>
+       <button ng-click="addMarker()">Add</button> -->
 
-       <button ng-click="loginWithGoogle('google')">Login With Google</button>
-     </div> -->
+       <!-- <button ng-click="loginWithGoogle('google')">Login With Google</button> -->
+     </div>
 
-     <div class="nav-holder">
+   <div class="nav-holder">
     <nav class="material-nav">
         <div class="nav-brand">
           <img src="assets/icons/brand.svg">
@@ -70,9 +69,9 @@
         <div class="nav-links">
           <ul>
             <li>
-              <a href="#" id="sign-in" class="btn google">Google Sign In
+              <a href="#" id="login" class="btn google">Google Sign In
               </a>
-              <a href="#" id="sign-out" class="btn white hide">LOG OUT</a>
+              <a href="#" id="logout" class="btn white hide">LOG OUT</a>
             </li>
           </ul>
         </div>
@@ -98,7 +97,7 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                <input type="radio" id="event" class="mdl-radio__button" name="options" value="event" checked>
                 <span class="mdl-radio__label">Event</span>
               </label>
             
@@ -106,7 +105,7 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                <input type="radio" id="happening" class="mdl-radio__button" name="options" value="happening">
                 <span class="mdl-radio__label">Happening</span>
               </label>
             
@@ -114,7 +113,7 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="2">
+                <input type="radio" id="emergency" class="mdl-radio__button" name="options" value="emergency">
                 <span class="mdl-radio__label">Emergency</span>
               </label>
             
@@ -122,7 +121,7 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
-                <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="2">
+                <input type="radio" id="complaint" class="mdl-radio__button" name="options" value="complaint">
                 <span class="mdl-radio__label">Complaint</span>
               </label>
             
@@ -140,25 +139,25 @@
     </div>
   </dialog>
 
-  <dialog class="mdl-dialog"> 
+  <dialog class="mdl-dialog"  id="new-pin"> 
     <h4 class="mdl-dialog__title">
       <img src="assets/icons/pin.svg">
     </h4>
     <div class="mdl-dialog__content">
       <form action="#">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input class="mdl-textfield__input" type="text" id="sample3">
-          <label class="mdl-textfield__label" for="sample3">Pin Title</label>
+          <input class="mdl-textfield__input" type="text" id="pinTitle">
+          <label class="mdl-textfield__label" for="pinTitle">Pin Title</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-    <textarea class="mdl-textfield__input" type="text" rows= "5" id="sample5" ></textarea>
-    <label class="mdl-textfield__label" for="sample5">Message</label>
+    <textarea class="mdl-textfield__input" type="text" rows= "5" id="pinMessage" required></textarea>
+    <label class="mdl-textfield__label" for="pinMessage" required>Message</label>
   </div>
         <ul class="demo-list-item mdl-list">
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="event" checked>
                 <span class="mdl-radio__label">Event</span>
               </label>
             
@@ -166,7 +165,7 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="happening">
                 <span class="mdl-radio__label">Happening</span>
               </label>
             
@@ -174,7 +173,7 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="2">
+                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="emergency">
                 <span class="mdl-radio__label">Emergency</span>
               </label>
             
@@ -182,20 +181,17 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
-                <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="2">
+                <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="complaint">
                 <span class="mdl-radio__label">Complaint</span>
               </label>
             
           </li>
         </ul>
         
-        
-        
-        
       </form>
     </div>
     <div class="mdl-dialog__actions">
-      <button type="button" class="mdl-button">Pin</button>
+      <button type="button" class="mdl-button" id="submitPin">Pin</button>
       <button type="button" class="mdl-button close">Cancel</button>
     </div>
   </dialog>
@@ -206,28 +202,7 @@
   <div id="map"></div>
 
     <script>
-      var ph = { lat: 10.3157, lng: 123.8854}
-      var markers = 'assets/icons/'
-      var eventIcon = 'eventIcon.png'
-      var complaintIcon = 'complaintIcon.png'
-      var emergencyIcon = 'emergencyIcon.png'
-      var happeningIcon = 'happeningIcon.png'
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8,
-          center: ph
-        });
-        var marker = new google.maps.Marker({
-          position: ph,
-          map: map,
-          icon: markers + happeningIcon
-        });
-      }
-    </script>
-    <script>
-      var dialog = document.querySelector('dialog');
+      var dialog = document.querySelector('#new-pin');
       var showDialogButton = document.querySelector('#filter-dialog');
       if (! dialog.showModal) {
         dialogPolyfill.registerDialog(dialog);
@@ -239,21 +214,43 @@
         dialog.close();
       });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwys19ZpjP8PDBbVuSK_d1Mdh6P8m9-M&callback=initMap"
-    async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-    <!-- AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
-    <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
 
-    <script type="text/javascript" src="/js/angular/app.js"></script>
-    <script type="text/javascript" src="/js/angular/controllers/controller.module.js"></script>
-    <script type="text/javascript" src="/js/angular/controllers/MainController.js"></script>
+    <script>
+      var ph = { lat: 10.3157, lng: 123.8854}
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 15,
+          center: ph
+        });
+        var marker = new google.maps.Marker({
+          position: ph,
+          map: map
+        });
+      }
+    </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwys19ZpjP8PDBbVuSK_d1Mdh6P8m9-M&callback=initMap"
+      async defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <!-- <script src="assets/js/main.js"></script> -->
+      <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    
+
+      <!-- AngularJS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+      <!-- Firebase -->
+      <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+      <!-- AngularFire -->
+      <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+
+      <script type="text/javascript" src="/js/angular/app.js"></script>
+      <script type="text/javascript" src="/js/angular/controllers/controller.module.js"></script>
+      <script type="text/javascript" src="/js/angular/controllers/MainController.js"></script>
+
+      <!-- VanillaJS -->
+      <script type="text/javascript" src="/js/vanilla.js"></script>
  
    </body>
 
