@@ -2,5 +2,14 @@
 	.material-nav{
 		width: 100% !important;
 	}
+	.filter-holder{
+		border-radius: 0 !important;
+		bottom: 0 !important;
+		padding: 0 !important;
+	}
+
+	dialog{
+		top: 0px !important;
+	}
 
 }

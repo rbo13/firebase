@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Welcome to Firebase Hosting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Psst!!</title>
 
 
       <!--Roboto Font-->
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+      <!--Material Design-->
+      <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 
       <!--Material Icons-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -66,7 +70,7 @@
         <div class="nav-links">
           <ul>
             <li>
-              <a href="#" id="sign-in" class="btn google">Sign up with G+
+              <a href="#" id="sign-in" class="btn google">Google Sign In
               </a>
             </li>
           </ul>
@@ -76,23 +80,127 @@
 
   <div class="filter-holder">
     <div class="filter-card">
-    <ul>
-      <li>
-        <a  href="" class="btn blue circle">H</a>
-      </li>
-      <li>
-        <a  href="" class="btn pink circle">H</a>
-      </li>
-      <li>
-        <a  href="" class="btn green circle">H</a>
-      </li>
-      <li>
-        <a  href="" class="btn purple circle">H</a>
-      </li>
-    </ul>
+      <button id="filter-dialog" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">filter_list</i>
+      </button>
   </div>  
   </div>
+
+
+    <dialog class="mdl-dialog"> 
+    <h4 class="mdl-dialog__title">
+      <img src="assets/icons/filter.svg">
+    </h4>
+    <div class="mdl-dialog__content">
+      <form action="#">
+        <ul class="demo-list-item mdl-list">
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                <span class="mdl-radio__label">Event</span>
+              </label>
+            
+          </li>
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Happening</span>
+              </label>
+            
+          </li>
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Emergency</span>
+              </label>
+            
+          </li>
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Complaint</span>
+              </label>
+            
+          </li>
+        </ul>
+        
+        
+        
+        
+      </form>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button">Go</button>
+      <button type="button" class="mdl-button close">Cancel</button>
+    </div>
+  </dialog>
+
+  <dialog class="mdl-dialog"> 
+    <h4 class="mdl-dialog__title">
+      <img src="assets/icons/pin.svg">
+    </h4>
+    <div class="mdl-dialog__content">
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Pin Title</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+    <textarea class="mdl-textfield__input" type="text" rows= "5" id="sample5" ></textarea>
+    <label class="mdl-textfield__label" for="sample5">Message</label>
+  </div>
+        <ul class="demo-list-item mdl-list">
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                <span class="mdl-radio__label">Event</span>
+              </label>
+            
+          </li>
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Happening</span>
+              </label>
+            
+          </li>
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Emergency</span>
+              </label>
+            
+          </li>
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Complaint</span>
+              </label>
+            
+          </li>
+        </ul>
+        
+        
+        
+        
+      </form>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button">Pin</button>
+      <button type="button" class="mdl-button close">Cancel</button>
+    </div>
+  </dialog>
   
+
+
 
   <div id="map"></div>
 
@@ -117,10 +225,24 @@
         });
       }
     </script>
+    <script>
+      var dialog = document.querySelector('dialog');
+      var showDialogButton = document.querySelector('#filter-dialog');
+      if (! dialog.showModal) {
+        dialogPolyfill.registerDialog(dialog);
+      }
+      showDialogButton.addEventListener('click', function() {
+        dialog.showModal();
+      });
+      dialog.querySelector('.close').addEventListener('click', function() {
+        dialog.close();
+      });
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqwys19ZpjP8PDBbVuSK_d1Mdh6P8m9-M&callback=initMap"
     async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <!-- Firebase -->
