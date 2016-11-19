@@ -21,7 +21,9 @@
 	var lat = "";
 	var lng = "";
 
-	var map = ""
+	var map = "";
+
+	var ph = {};
 
 	var markers = [];
 
@@ -32,21 +34,22 @@
 	const dbRef = firebase.database().ref().child('data');
 	const dbRefList = dbRef.child('markers');
 
+	//Declare variable to check the firebaseUser.
+	var isLoggedIn = null;
+
 	//Synchronize changes.
 	dbRef.on('value', snap => {
-		preObject.innerText = JSON.stringify(snap.val(), null, 3);
+		// preObject.innerText = JSON.stringify(snap.val(), null, 3);
 	});
+	ph = { lat: 10.3157, lng: 123.8854};
 
+	initMap(lat, lng, ph);
 	//Sync list changes
 	dbRefList.on('child_added', snap => {
 
 		markers.push({lat : snap.val().lat, lng : snap.val().lng})
 
-		var ph = { lat: 10.3157, lng: 123.8854};
-
 		
-
-		initMap(lat, lng, ph);
 		createMarker(markers);
 
 		console.log(lat+" - "+lng);
@@ -81,8 +84,10 @@
 	//Add auth realtime listener.
 	firebase.auth().onAuthStateChanged(firebaseUser => {
 
-		if(firebaseUser){
-			console.log(firebaseUser);
+		isLoggedIn = firebaseUser;
+
+		if(isLoggedIn){
+			console.log(isLoggedIn);
 			btnLogout.style.display = "block";
 			signUp.style.display = "none";
 			helloUser.innerText = firebaseUser.displayName;
@@ -104,14 +109,57 @@
 	
 	//create a initialize map and create a new marker.
 	function initMap(lat, lng, ph) {
+
+		console.log("Map loaded");
+
+		var strictBounds = new google.maps.LatLngBounds(
+
+			new google.maps.LatLng(10.264759, 123.855103),
+ 			new google.maps.LatLng(10.376059, 123.923081)
+  		);
+
+  		
+  		//Initialize map.
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: lat, lng: lng},
           zoom: 15,
           center: ph
         });
 
+        //Set bounds
+  		google.maps.event.addListener(map, 'dragend', function(){
+  			console.log("Ari rka kutob");
+
+  			if (strictBounds.contains(map.getCenter())) return;
+
+     		// We're out of bounds - Move the map back within the bounds
+		     var c = map.getCenter(),
+		         x = c.lng(),
+		         y = c.lat(),
+		         maxX = strictBounds.getNorthEast().lng(),
+		         maxY = strictBounds.getNorthEast().lat(),
+		         minX = strictBounds.getSouthWest().lng(),
+		         minY = strictBounds.getSouthWest().lat();
+
+		     if (x < minX) x = minX;
+		     if (x > maxX) x = maxX;
+		     if (y < minY) y = minY;
+		     if (y > maxY) y = maxY;
+
+     		map.setCenter(new google.maps.LatLng(y, x));
+     		
+  		});
+
+
         // This event listener calls addMarker() when the map is clicked.
         google.maps.event.addListener(map, 'click', event => {
+
+        	if(!isLoggedIn){
+        		return
+        	}
+
+        	//TODO: show modal.
+        	
         	console.log("The event");
         	console.log("Latitude: "+event.latLng.lat().toFixed(6));
         	console.log("Longitude: "+event.latLng.lng().toFixed(6));
@@ -123,8 +171,12 @@
 
         	addMarker(event.latLng, map);
         });
+
+        
+        
     }
 
+    
     //Add a new marker
     function addMarker(location, map){
     	// Add the marker at the clicked location, and add the next-available label
