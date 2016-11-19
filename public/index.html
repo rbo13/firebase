@@ -20,6 +20,11 @@
       <!--custom styleshee-->
       <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
       <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/chat.css">
+
+      <!--favicon-->
+      <link rel="shortcut icon" href="asssets/icons/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
 
       <style>
       /* Always set the map height explicitly to define the size of the div
@@ -64,23 +69,62 @@
    <div class="nav-holder">
     <nav class="material-nav">
         <div class="nav-brand">
-          <img src="assets/icons/brand.svg">
+          <img class="desktop" src="assets/icons/brand.svg">
+          <img class="mobile" src="assets/icons/mbrand.svg">
         </div>
         <div class="nav-links">
           <ul>
             <li>
-              <a href="#" id="login" class="btn google">Google Sign In
-              </a>
+
+              <button id="login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent google">
+                Google Sign In
+              </button>
               <a href="#" id="logout" class="btn white hide">LOG OUT</a>
+
+            </li>
+            <li>
+              <button id="chat-drawer" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored white def">
+                <i class="material-icons">chat</i>
+              </button>
             </li>
           </ul>
         </div>
       </nav>    
   </div>
 
+  <div id="drawer" class="chat-holder">
+        <button id="chat-drawer-close" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored white def">
+        <i class="material-icons">close</i>
+      </button>
+
+          <div id="messages-card">
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="messages">
+            <span id="message-filler"></span>
+          </div>
+          <form id="message-form" action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="message">
+              <label class="mdl-textfield__label" for="message">Message...</label>
+            </div>
+            <button id="submit" disabled type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+    
+  </div>
+
+
   <div class="filter-holder">
     <div class="filter-card">
-      <button id="filter-dialog" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored purple">
+      <button id="filter-dialog" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored purple def">
         <i class="material-icons">filter_list</i>
       </button>
   </div>  
@@ -97,23 +141,45 @@
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+<<<<<<< HEAD
                 <input type="radio" id="event" class="mdl-radio__button" name="options" value="event" checked>
                 <span class="mdl-radio__label">Event</span>
+=======
+                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                <span class="mdl-radio__label">All</span>
+>>>>>>> fc574655fbb4c50682f4c6f34459c91eb5158ce8
               </label>
             
           </li>
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+<<<<<<< HEAD
                 <input type="radio" id="happening" class="mdl-radio__button" name="options" value="happening">
                 <span class="mdl-radio__label">Happening</span>
+=======
+                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Event</span>
+>>>>>>> fc574655fbb4c50682f4c6f34459c91eb5158ce8
               </label>
             
           </li>
           <li>
             
               <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+<<<<<<< HEAD
                 <input type="radio" id="emergency" class="mdl-radio__button" name="options" value="emergency">
+=======
+                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="2">
+                <span class="mdl-radio__label">Happening</span>
+              </label>
+            
+          </li>
+          <li>
+            
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="2">
+>>>>>>> fc574655fbb4c50682f4c6f34459c91eb5158ce8
                 <span class="mdl-radio__label">Emergency</span>
               </label>
             
