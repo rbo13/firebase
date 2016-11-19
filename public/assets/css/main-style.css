@@ -97,10 +97,6 @@ a{
 	background: rgba(0,0,0,0.08);
 }
 
-.btn.google:hover{
-	background: #bc3131;
-}
-
 .btn.active{
 	background: rgba(0,0,0,0.08);
 }
