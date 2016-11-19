@@ -64,19 +64,19 @@ a{
 }
 
 .blue{
-	background: #38A4DD;
+	background: #38A4DD !important;
 }
 
 .pink{
-	background: #E81F64;
+	background: #E81F64 !important;
 }
 
 .green{
-	background: #8BC249;
+	background: #8BC249 !important;
 }
 
 .purple{
-	background: #543E98;
+	background: #543E98 !important;
 }
 
 .google{
@@ -195,6 +195,10 @@ a{
 	width: 50px;
 	margin: 0 auto;
 	padding: 20px;
+}
+
+.hide{
+	display: none !important;
 }
 
 
